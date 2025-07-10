@@ -1,3 +1,4 @@
+#LSTM Text Generation with TensorFlow
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
@@ -36,5 +37,7 @@ for i in range(0, len(text) - SEQ_LENGTH, STEP_SIZE):
     sentences.append(text[i: i+SEQ_LENGTH])
     next_characters.append(text[i + SEQ_LENGTH])
 
-#
+#Input Layer
 x = np.zeros(len(sentences), SEQ_LENGTH, len(characters), dtype=bool)
+#Output Layer
+y = np.zeros(len(sentences), len(characters), dtype=bool)
