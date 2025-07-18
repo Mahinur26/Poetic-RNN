@@ -31,7 +31,7 @@ STEP_SIZE = 3
 sentences = []
 #Contains the correct next character for each training example
 next_characters = []
-
+'''
 #the -SEQ_LENGTH ensures that each incramnet has a full sequence
 for i in range(0, len(text) - SEQ_LENGTH, STEP_SIZE):
     sentences.append(text[i: i+SEQ_LENGTH])
@@ -55,22 +55,32 @@ for i, sentance in enumerate(sentences):
     #Set the next character for the sentence to True/1
     y[i, character_to_index[next_characters[i]]] = 1
 
+
+##Use this section to train the model and once done with training, comment it out or delete it
 #Creating the model now that the data is ready
-model = Sequential()
+##model = Sequential()
+
 #Adding an LSTM layer with 128 units
 #Input is immediatly put into the LSTM layer
-model.add(LSTM(128, input_shape=(SEQ_LENGTH, len(characters))))
+#model.add(LSTM(128, input_shape=(SEQ_LENGTH, len(characters))))
+
 #The LSTM cells are followed by a Dense/hidden layer
-model.add(Dense(len(characters)))
+#model.add(Dense(len(characters)))
+
 #The activation function is softmax to get a probability distribution over the characters
 #Softmax makes all the vectors/probabilities output sum to 1
-model.add(Activation("softmax"))
+#model.add(Activation("softmax"))
+
 #Calculating the loss with categorical crossentropy
 #Using RMSprop as the optimizer with a learning rate of 0.01 to begin backpropagation
-model.compile(loss="categorical_crossentropy", optimizer=RMSprop(learning_rate=0.01))
+#model.compile(loss="categorical_crossentropy", optimizer=RMSprop(learning_rate=0.01))
+
 #Backpropagation through time (BPTT) to train the model
 #The hyperparamters - batch size, epochs, and learning rate can be adjusted
 #Batch size is the number of training examples used in one iteration
 #Epochs is the number of times the model will see the same training examples again
-model.fit(x,y,batch_size=256, epochs=10)
-model.state("textgenerator.model")
+#model.fit(x,y,batch_size=256, epochs=10)
+#model.state("textgenerator.model")
+'''
+
+model = tf.keras.models.load_model("textgenerator.model")
