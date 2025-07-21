@@ -143,3 +143,8 @@ print("--------------0.1 Temperature----------------")
 print(generate_text(300, 0.1))
 print("--------------0.8 Temperature----------------")
 print(generate_text(300, 0.8))
+print("--------------1 Temperature----------------")
+print(generate_text(300, 1.0))
+print("--------------2 Temperature----------------")
+print(generate_text(300, 2.0))
+
