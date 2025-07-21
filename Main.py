@@ -32,6 +32,8 @@ sentences = []
 #Contains the correct next character for each training example
 next_characters = []
 
+#Make sure to comment out this section when training is complete
+'''
 #the -SEQ_LENGTH ensures that each incramnet has a full sequence
 for i in range(0, len(text) - SEQ_LENGTH, STEP_SIZE):
     sentences.append(text[i: i + SEQ_LENGTH])
@@ -83,13 +85,14 @@ model.fit(x,y,batch_size=256, epochs=10)
 
 # Save after training
 model.save("textgenerator.keras")
+'''
+#End of training section
 
 # Then load here
 model = tf.keras.models.load_model("textgenerator.keras")
 
-#End of training section
 
-'''
+
 #Helper function to generate text (Copied from the keras tutorial)
 #Takes the predictions from the model and chooses the next character based on a temperature parameter
 #The temperature parameter is used to decide if the next character should be more conservative or more random/experimental
@@ -140,4 +143,3 @@ print("--------------0.1 Temperature----------------")
 print(generate_text(300, 0.1))
 print("--------------0.8 Temperature----------------")
 print(generate_text(300, 0.8))
-'''
