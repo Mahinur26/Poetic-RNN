@@ -135,6 +135,8 @@ def generate_text(length, temperature):
         #This will be used as the input for the next prediction
         sentence = sentence[1:] + next_character    
     return generated_text
+
+#Test runs with different temperatures
 print("--------------0.2 Temperature----------------")
 print(generate_text(300, 0.2))
 print("--------------0.6 Temperature----------------")
@@ -147,4 +149,3 @@ print("--------------1 Temperature----------------")
 print(generate_text(300, 1.0))
 print("--------------2 Temperature----------------")
 print(generate_text(300, 2.0))
-
