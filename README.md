@@ -22,12 +22,13 @@ The training section in [`Main.py`](Main.py) uses the following hyperparameters:
 - Learning rate: 0.01 (RMSprop optimizer)
 
 Feel free to experiment with these hyperparameters to improve model performance or adapt the training process to your needs. Adjusting sequence length, batch size, number of epochs, or the learning rate can have a significant impact on the quality and
+
 ## Usage
 
 1. **Install dependencies:**
    ```sh
    pip install tensorflow numpy
-   ```
+
 
 2. **Train the model:**
    - Uncomment the training section in [`Main.py`](Main.py).
@@ -39,12 +40,12 @@ Feel free to experiment with these hyperparameters to improve model performance 
 
 ## Example Output
 
-```
---------------0.2 Temperature----------------
-[Conservative, repetitive text sample]
---------------1 Temperature----------------
-[Creative, varied text sample]
-```
+### 0.2 Temperature - Conservative, repetitive text sample
+![0.2 Temperature Output](0.2%20temp.png)
+
+### 1.0 Temperature - Creative, varied text sample
+![1 Temperature Output](1%20temp.png)
+
 
 ## Files
 
@@ -59,3 +60,4 @@ Feel free to experiment with these hyperparameters to improve model performance 
 ## License
 
 This project is for educational purposes and uses publicly available
+
